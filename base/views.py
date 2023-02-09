@@ -19,7 +19,7 @@ from .models import *
 # Create your views here.
 
 def home(request):
-	posts = Post.objects.filter(active=True, featured=True)[0:3]
+	posts = Post.objects.filter(active=True, featured=True)[0:6]
 
 	context = {'posts':posts}
 	return render(request, 'base/index.html', context)
@@ -31,7 +31,7 @@ def posts(request):
 
 	page = request.GET.get('page')
 
-	paginator = Paginator(posts, 5)
+	paginator = Paginator(posts, 12)
 
 	try:
 		posts = paginator.page(page)
@@ -124,7 +124,7 @@ def sendEmail(request):
 			['dennisivy11@gmail.com']
 			)
 
-		email.fail_silently=False
+		#email.fail_silently=False
 		email.send()
 
 	return render(request, 'base/email_sent.html')

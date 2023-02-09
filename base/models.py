@@ -30,6 +30,17 @@ class Tag(models.Model):
 	def __str__(self):
 		return self.name
 
+class Email(models.Model):
+	name = models.CharField(max_length=200)
+	email = models.CharField(max_length=200)
+	sujet= models.CharField(max_length=200)
+	message=models.CharField(max_length=200)
+ 
+    
+
+	def __str__(self):
+		return f"{self.suject} '    '{self.message}"
+
 
 class Post(models.Model):
 	headline = models.CharField(max_length=200)
