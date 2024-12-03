@@ -26,7 +26,7 @@ SECRET_KEY = 'hrj48*mobkzo)s6q+2wfqcg=_=@5c38n&sb4_vlp#bb^zyp_pi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['salmitech.pythonanywhere.com']
+ALLOWED_HOSTS = ['salmitech.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -174,3 +174,10 @@ AWS_QUERYSTRING_AUTH = False
 
 #AWS_S3_FILE_OVERWRITE = False
 #AWS_DEFAULT_ACL = None
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'salmi.ensa.ilsi@gmail.com'  # Replace with your Gmail email address
+EMAIL_HOST_PASSWORD = 'ukih xbxk ognh ksyb'

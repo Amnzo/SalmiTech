@@ -3,40 +3,67 @@
 {% block content %}
 
 <style type="text/css">
-	html, body{
-		height: 100%;
-	}
+    html, body {
+        height: 100%;
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(to right, #3498db, #2ecc71);
+        color: #333;
+    }
 
-	#page-wrapper{
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		background-color: #eaeaea;
-	}
+    #page-wrapper {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
 
-	#success-box{
-		max-width: 800px;
-		height: auto;
-		background-color: #fff;
-		border:1px solid #888;
-		border-radius: 5px;
-		padding: 15px;
-	}
+    #success-box {
+        max-width: 600px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        text-align: center;
+    }
 
-	#success-box p{
-		font-size: 18px;
-	}
+    #success-box h1 {
+        font-size: 2.5rem;
+        color: #2ecc71;
+        margin-bottom: 20px;
+    }
 
+    #success-box p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        font-size: 1rem;
+        color: #ffffff;
+        background-color: #3498db;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #2980b9;
+    }
 </style>
 
 <div id="page-wrapper">
-	<div id="success-box" class="content-block">
-		<h1>Thanks for reaching out!</h1>
-		<p>Your message was successfully sent. I will do my best to get back to you in a timely manner :)</p>
-		<a id="back-btn" class="btn btn-success" href="{% url 'home' %}">BACK TO HOME PAGE</a>
-	</div>
+    <div id="success-box" class="content-block">
+        <h1>Merci de m'avoir contacté !</h1>
+        <p>Votre message a été envoyé avec succès. Je ferai de mon mieux pour vous répondre dans les meilleurs délais. 😊</p>
+        <a id="back-btn" class="btn" href="{% url 'home' %}">Retour à la page d'accueil</a>
+    </div>
 </div>
 
 {% endblock content %}
