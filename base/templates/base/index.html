@@ -1,6 +1,91 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
+	<style>
+.intro-container::before {
+  content: "💻🚀"; /* Icônes représentant la technologie et l'innovation */
+  font-size: 5rem; /* Taille des icônes */
+  position: absolute; /* Positionnement absolu par rapport à .intro-container */
+  top: 30%; /* Position verticale à 30% du haut de l'élément parent */
+  right: 10%; /* Position horizontale à 10% du côté droit de l'élément parent */
+  opacity: 0.2; /* Opacité faible pour rendre l'effet subtil */
+  z-index: 1; /* Assurez-vous que l'icône reste derrière le contenu principal */
+  animation: fadeIn 3s ease-out 1s forwards; /* Animation de fondu (détails ci-dessous) */
+}
+
+		/* Style du conteneur d'introduction */
+.intro-container {
+  text-align: center;
+  padding: 100px 20px;
+  background: #f4f6f9;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  animation: slideIn 1s ease-out;
+}
+
+h1 .highlight {
+  color: #3498db;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #666;
+  margin-top: 10px;
+  animation: fadeIn 2s ease-out;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #444;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeIn 2s ease-out 0.5s forwards;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  background-color: #3498db;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #2980b9;
+}
+
+/* Animation de l'apparition du texte */
+@keyframes slideIn {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+	</style>
 <head>
 	<title>Mohamed Salmi</title>
 
@@ -28,9 +113,14 @@
 
 	<section class="s1">
 		<div class="main-container">
-			<div class="greeting-wrapper">
-				<h1>Salut, Je suis Mohamed Salmi</h1>
+			<div class="intro-container">
+				<h1>👋 Salut, je suis <span class="highlight">Mohamed Salmi</span></h1>
+				<h2>Développeur | Data Analyste | Formateur</h2>
+				<p>Passionné par la création de solutions numériques innovantes qui transforment les idées en réalité.</p>
+				<a href="#contact" class="cta-button">Découvrir mon travail</a>
 			</div>
+			
+			
 
 
 			<div class="intro-wrapper">
