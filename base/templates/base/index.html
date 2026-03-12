@@ -2,491 +2,959 @@
 {% load static %}
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mohamed Salmi - Développeur Full Stack & Data Analyste</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mohamed Salmi — Développeur Full Stack & Data Analyste. Python, Django, Flutter, REST API. Disponible pour vos projets." />
+  <title>Mohamed Salmi — Développeur Full Stack & Data Analyste</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <!-- AOS Scroll Animations -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
 
-    <style>
-        :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #20c997;
-            --dark-bg: #121212;
-            --light-bg: #f8f9fa;
-            --text-color: #343a40;
-            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition-speed: 0.3s;
-        }
-
-        /* Reset & base */
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            scroll-behavior: smooth;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-            transition: color var(--transition-speed);
-        }
-
-        a:hover,
-        a:focus {
-            color: var(--secondary-color);
-            outline: none;
-        }
-
-        /* Navbar */
-        nav.navbar {
-            background-color: #fff;
-            box-shadow: var(--card-shadow);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        .navbar-nav .nav-link {
-            font-weight: 500;
-            margin-left: 1.5rem;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            color: #555;
-            transition: background-color var(--transition-speed), color var(--transition-speed);
-        }
-
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link:focus {
-            color: var(--primary-color);
-            background-color: rgba(13, 110, 253, 0.1);
-            outline: none;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 90vh;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: #fff;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding: 0 1rem;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .hero h1 span.highlight {
-            color: #ffd54f;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-        }
-
-        .hero p.lead {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
-        }
-
-        .btn-primary-hero {
-            background-color: #ffd54f;
-            color: #1a1a1a;
-            padding: 0.75rem 3rem;
-            font-weight: 700;
-            border-radius: 50px;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            box-shadow: 0 4px 15px rgba(255, 213, 79, 0.7);
-            border: none;
-            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .btn-primary-hero:hover,
-        .btn-primary-hero:focus {
-            background-color: #ffca28;
-            color: #000;
-            box-shadow: 0 6px 20px rgba(255, 202, 40, 0.9);
-            outline: none;
-        }
-
-        /* About Section */
-        #about {
-            padding: 5rem 2rem;
-            background-color: #fff;
-        }
-
-        #about .row {
-            align-items: center;
-        }
-
-        #about img {
-            border-radius: 1rem;
-            box-shadow: var(--card-shadow);
-            max-width: 100%;
-            transition: transform 0.3s ease;
-        }
-
-        #about img:hover {
-            transform: scale(1.05);
-        }
-
-        #about h2 {
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        #about p.lead {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #555;
-        }
-
-        /* Skills */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .skill-badge {
-            background-color: var(--light-bg);
-            padding: 0.5rem 1.25rem;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--primary-color);
-            box-shadow: 0 2px 5px rgba(13, 110, 253, 0.15);
-            transition: background-color var(--transition-speed), color var(--transition-speed), transform var(--transition-speed);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: default;
-            user-select: none;
-        }
-
-        .skill-badge svg,
-        .skill-badge img {
-            height: 24px;
-            width: 24px;
-        }
-
-        .skill-badge:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        /* Portfolio Section */
-        #portfolio {
-            background-color: var(--light-bg);
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-
-        #portfolio h2 {
-            font-weight: 700;
-            margin-bottom: 3rem;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .portfolio-card {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: var(--card-shadow);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .portfolio-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-        }
-
-        .portfolio-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .portfolio-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .portfolio-card-body {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .portfolio-card-title {
-            font-weight: 700;
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        .portfolio-card-text {
-            color: #6c757d;
-            flex-grow: 1;
-            font-size: 1rem;
-        }
-
-        .btn-portfolio {
-            margin-top: 1.5rem;
-            align-self: flex-start;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            font-weight: 600;
-            transition: background-color var(--transition-speed);
-        }
-
-        .btn-portfolio:hover,
-        .btn-portfolio:focus {
-            background-color: #0b5ed7;
-            outline: none;
-        }
-
-        /* Contact Section */
-        #contact {
-            background-color: var(--dark-bg);
-            color: white;
-            padding: 5rem 2;
-			text-align: center;
-}
-#contact h2 {
-        font-weight: 700;
-        margin-bottom: 2rem;
+  <style>
+    :root {
+      --navy:      #0a192f;
+      --navy-light:#112240;
+      --slate:     #8892b0;
+      --slate-light:#a8b2d8;
+      --white:     #ccd6f6;
+      --teal:      #64ffda;
+      --teal-dim:  rgba(100,255,218,.1);
+      --font:      'Inter', sans-serif;
     }
 
-    #contact form {
-        max-width: 600px;
-        margin: 0 auto;
-        text-align: left;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--navy);
+      color: var(--slate);
+      line-height: 1.7;
     }
 
-    #contact label {
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        display: block;
+    a { text-decoration: none; transition: color .25s; }
+    section { padding: 100px 0; }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .75rem;
+    }
+    .section-title span { color: var(--teal); }
+    .section-number {
+      font-family: var(--font);
+      color: var(--teal);
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: .5rem;
+    }
+    .divider {
+      width: 60px; height: 3px;
+      background: var(--teal);
+      border-radius: 2px;
+      margin: .75rem 0 2.5rem;
     }
 
-    #contact input,
-    #contact textarea {
-        width: 100%;
-        padding: 0.75rem 1rem;
-        margin-bottom: 1.25rem;
-        border: none;
-        border-radius: 0.5rem;
-        font-size: 1rem;
+    /* ── NAVBAR ── */
+    #mainNav {
+      background: rgba(10,25,47,.92);
+      backdrop-filter: blur(10px);
+      padding: .9rem 0;
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      border-bottom: 1px solid rgba(100,255,218,.08);
+      transition: background .3s;
+    }
+    .nav-logo {
+      font-weight: 800; font-size: 1.3rem;
+      color: var(--teal) !important;
+      letter-spacing: 1px;
+    }
+    .navbar-nav .nav-link {
+      color: var(--slate-light) !important;
+      font-size: .9rem; font-weight: 500;
+      padding: .4rem .9rem !important;
+      border-radius: 6px;
+      transition: color .25s, background .25s;
+    }
+    .navbar-nav .nav-link:hover { color: var(--teal) !important; background: var(--teal-dim); }
+    .nav-cta {
+      border: 1px solid var(--teal) !important;
+      color: var(--teal) !important;
+      border-radius: 6px;
+      padding: .4rem 1.2rem !important;
+    }
+    .nav-cta:hover { background: var(--teal-dim) !important; }
+    .navbar-toggler { border: 1px solid var(--teal); }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(100,255,218,1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
 
-    #contact input:focus,
-    #contact textarea:focus {
-        outline: 2px solid var(--secondary-color);
-        box-shadow: 0 0 8px var(--secondary-color);
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 80px;
+      background: var(--navy);
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 40%, rgba(100,255,218,.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-greeting {
+      font-size: 1rem; font-weight: 600;
+      color: var(--teal); letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+    .hero-name {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: .5rem;
+    }
+    .hero-title {
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title span { color: var(--teal); }
+    .hero-desc {
+      max-width: 540px;
+      font-size: 1.05rem;
+      color: var(--slate);
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .btn-teal {
+      background: transparent;
+      border: 1px solid var(--teal);
+      color: var(--teal);
+      padding: .7rem 1.8rem;
+      border-radius: 6px;
+      font-weight: 600; font-size: .95rem;
+      transition: background .25s, color .25s;
+    }
+    .btn-teal:hover { background: var(--teal-dim); color: var(--teal); }
+    .btn-teal-fill {
+      background: var(--teal);
+      border: 1px solid var(--teal);
+      color: var(--navy);
+      padding: .7rem 1.8rem;
+      border-radius: 6px;
+      font-weight: 700; font-size: .95rem;
+      transition: opacity .25s;
+    }
+    .btn-teal-fill:hover { opacity: .85; color: var(--navy); }
+
+    .hero-avatar {
+      width: 320px; height: 320px; max-width: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--teal);
+      box-shadow: 0 0 40px rgba(100,255,218,.2);
+      filter: grayscale(20%);
+      transition: filter .3s;
+    }
+    .hero-avatar:hover { filter: grayscale(0); }
+    .hero-socials {
+      position: fixed; bottom: 0; left: 2.5rem;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 1rem; z-index: 10;
+    }
+    .hero-socials::after {
+      content: '';
+      width: 1px; height: 80px;
+      background: var(--slate);
+      display: block;
+    }
+    .hero-socials a {
+      color: var(--slate);
+      font-size: 1.1rem;
+      transition: color .25s, transform .25s;
+    }
+    .hero-socials a:hover { color: var(--teal); transform: translateY(-3px); }
+
+    /* ── ABOUT ── */
+    #about { background: var(--navy-light); }
+    #about p { font-size: 1.05rem; color: var(--slate); margin-bottom: 1rem; line-height: 1.9; }
+    #about ul {
+      list-style: none; padding: 0;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: .4rem .5rem; margin-top: 1rem;
+    }
+    #about ul li { font-size: .9rem; color: var(--slate-light); }
+    #about ul li::before { content: "▹ "; color: var(--teal); }
+    .about-img-wrap { position: relative; max-width: 340px; margin: 0 auto; }
+    .about-img-wrap img {
+      width: 100%; border-radius: 8px;
+      filter: grayscale(25%);
+      transition: filter .3s;
+      position: relative; z-index: 1;
+    }
+    .about-img-wrap img:hover { filter: grayscale(0); }
+    .about-img-wrap::before {
+      content: '';
+      position: absolute;
+      top: 14px; left: 14px;
+      width: 100%; height: 100%;
+      border: 2px solid var(--teal);
+      border-radius: 8px;
+      z-index: 0;
+      transition: top .3s, left .3s;
+    }
+    .about-img-wrap:hover::before { top: 8px; left: 8px; }
+
+    /* ── SERVICES ── */
+    #services { background: var(--navy); }
+    .service-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(100,255,218,.1);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      height: 100%;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--teal);
+      box-shadow: 0 10px 30px rgba(0,0,0,.3);
+    }
+    .service-icon {
+      font-size: 2rem;
+      color: var(--teal);
+      margin-bottom: 1.25rem;
+    }
+    .service-card h4 {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: .75rem;
+    }
+    .service-card p { font-size: .95rem; color: var(--slate); margin: 0; }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--navy-light); }
+    .skill-group h5 {
+      color: var(--teal);
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .skill-pill {
+      display: inline-block;
+      background: var(--navy);
+      border: 1px solid rgba(100,255,218,.2);
+      color: var(--slate-light);
+      padding: .4rem 1rem;
+      border-radius: 20px;
+      font-size: .88rem;
+      font-weight: 500;
+      margin: .3rem;
+      transition: border-color .25s, color .25s, background .25s;
+    }
+    .skill-pill:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      background: var(--teal-dim);
     }
 
-    #contact button {
-        background-color: var(--secondary-color);
-        color: #121212;
-        padding: 0.75rem 2.5rem;
-        font-weight: 700;
-        border-radius: 50px;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        display: block;
-        margin: 0 auto;
+    /* ── STATS ── */
+    #stats { background: var(--navy); padding: 60px 0; }
+    .stat-item { text-align: center; }
+    .stat-number {
+      font-size: 3rem; font-weight: 800;
+      color: var(--teal); line-height: 1;
+    }
+    .stat-label { font-size: .9rem; color: var(--slate); margin-top: .5rem; }
+
+    /* ── PORTFOLIO ── */
+    #portfolio { background: var(--navy-light); }
+    .project-card {
+      background: var(--navy);
+      border: 1px solid rgba(100,255,218,.1);
+      border-radius: 12px;
+      overflow: hidden;
+      height: 100%;
+      display: flex; flex-direction: column;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.4);
+    }
+    .project-card img {
+      width: 100%; height: 200px;
+      object-fit: cover;
+      filter: grayscale(30%);
+      transition: filter .3s;
+    }
+    .project-card:hover img { filter: grayscale(0); }
+    .project-body {
+      padding: 1.5rem;
+      flex: 1; display: flex; flex-direction: column;
+    }
+    .project-tags { margin-bottom: .75rem; display: flex; flex-wrap: wrap; gap: .4rem; }
+    .project-tag {
+      font-size: .75rem; font-weight: 600;
+      color: var(--teal); letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .project-body h4 {
+      color: var(--white);
+      font-weight: 700; font-size: 1.1rem;
+      margin-bottom: .6rem;
+    }
+    .project-body p {
+      color: var(--slate);
+      font-size: .92rem; flex: 1;
+    }
+    .project-links {
+      margin-top: 1.25rem;
+      display: flex; gap: 1rem;
+    }
+    .project-links a { color: var(--slate-light); font-size: 1.1rem; }
+    .project-links a:hover { color: var(--teal); }
+
+    /* ── TANA BANNER ── */
+    #tana {
+      background: var(--teal);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    #tana::before {
+      content: 'TANA';
+      position: absolute;
+      font-size: 20vw;
+      font-weight: 900;
+      color: rgba(0,0,0,.06);
+      right: -2vw; top: 50%;
+      transform: translateY(-50%);
+      letter-spacing: -2px;
+      pointer-events: none;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .tana-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 4rem 0;
+      flex-wrap: wrap;
+    }
+    .tana-inner .tana-left { flex: 1; min-width: 260px; }
+    .tana-eyebrow {
+      display: inline-block;
+      background: rgba(0,0,0,.12);
+      color: var(--navy);
+      font-size: .78rem; font-weight: 800;
+      letter-spacing: 3px; text-transform: uppercase;
+      padding: .35rem 1rem; border-radius: 20px;
+      margin-bottom: 1.25rem;
+    }
+    .tana-inner h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .tana-inner p {
+      color: rgba(10,25,47,.75);
+      font-size: 1.05rem;
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+    .tana-right { display: flex; flex-direction: column; gap: 1rem; align-items: flex-end; flex-shrink: 0; }
+    .btn-tana-primary {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: var(--navy);
+      color: var(--teal);
+      font-weight: 700; font-size: 1rem;
+      padding: .9rem 2rem;
+      border-radius: 8px;
+      transition: opacity .25s;
+      white-space: nowrap;
+    }
+    .btn-tana-primary:hover { opacity: .85; color: var(--teal); }
+    .btn-tana-secondary {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: transparent;
+      border: 2px solid var(--navy);
+      color: var(--navy);
+      font-weight: 700; font-size: .95rem;
+      padding: .8rem 2rem;
+      border-radius: 8px;
+      transition: background .25s, color .25s;
+      white-space: nowrap;
+    }
+    .btn-tana-secondary:hover { background: rgba(10,25,47,.1); color: var(--navy); }
+    @media (max-width: 767px) {
+      .tana-right { align-items: stretch; }
+      .btn-tana-primary, .btn-tana-secondary { justify-content: center; }
     }
 
-    #contact button:hover,
-    #contact button:focus {
-        background-color: #17c964;
-        outline: none;
+    /* ── CONTACT ── */
+    #contact { background: var(--navy); }
+    .contact-form {
+      background: var(--navy-light);
+      border: 1px solid rgba(100,255,218,.1);
+      border-radius: 16px;
+      padding: 3rem;
+    }
+    .form-label { color: var(--slate-light); font-size: .9rem; font-weight: 600; }
+    .form-control {
+      background: var(--navy);
+      border: 1px solid rgba(100,255,218,.2);
+      color: var(--white);
+      border-radius: 8px;
+      padding: .75rem 1rem;
+      font-size: .95rem;
+      transition: border-color .25s;
+    }
+    .form-control:focus {
+      background: var(--navy);
+      border-color: var(--teal);
+      color: var(--white);
+      box-shadow: 0 0 0 3px rgba(100,255,218,.1);
+    }
+    .form-control::placeholder { color: var(--slate); }
+    .contact-info h5 { color: var(--white); font-weight: 700; margin-bottom: .5rem; }
+    .contact-info p, .contact-info a { color: var(--slate); font-size: .95rem; }
+    .contact-info a:hover { color: var(--teal); }
+    .info-item { display: flex; gap: 1rem; margin-bottom: 2rem; align-items: flex-start; }
+    .info-icon {
+      width: 44px; height: 44px; min-width: 44px;
+      background: var(--teal-dim);
+      border: 1px solid rgba(100,255,218,.3);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--teal); font-size: 1rem;
     }
 
-    /* Footer */
+    /* ── FOOTER ── */
     footer {
-        background-color: #222;
-        color: #aaa;
-        padding: 1rem 2rem;
-        text-align: center;
-        font-size: 0.9rem;
+      background: #060f1c;
+      padding: 2.5rem 0;
+      border-top: 1px solid rgba(100,255,218,.08);
     }
+    footer .social-link {
+      color: var(--slate);
+      font-size: 1.15rem;
+      margin: 0 .5rem;
+      transition: color .25s, transform .25s;
+      display: inline-block;
+    }
+    footer .social-link:hover { color: var(--teal); transform: translateY(-3px); }
+    .footer-text { color: var(--slate); font-size: .85rem; margin-top: 1.5rem; }
+    .footer-text a { color: var(--teal); }
+    .footer-text a:hover { text-decoration: underline; }
 
-    /* Responsive tweaks */
-    @media (max-width: 768px) {
-        .hero h1 {
-            font-size: 2.5rem;
-        }
-        #about .row {
-            flex-direction: column-reverse;
-            text-align: center;
-        }
-        #about img {
-            margin-bottom: 2rem;
-        }
-        .navbar-nav {
-            margin-top: 1rem;
-        }
+    /* ── MISC ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+    .text-teal { color: var(--teal); }
+
+    /* Typed cursor */
+    .typed-cursor { color: var(--teal); }
+
+    @media (max-width: 767px) {
+      section { padding: 70px 0; }
+      .hero-socials { display: none; }
+      .contact-form { padding: 2rem 1.25rem; }
+      #about ul { grid-template-columns: 1fr; }
+      .hero-name { font-size: 2.4rem; }
     }
-</style>
-</head> <body>
-	<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light">
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════ NAVBAR ═══════════════════════════════════ -->
+  <nav id="mainNav" class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand" href="#hero">Salmi Mohamed</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Menu de navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navMenu">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            </ul>
-        </div>
+      <a class="navbar-brand nav-logo" href="#hero">MS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto align-items-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="#about"><span class="text-teal">01.</span> À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services"><span class="text-teal">02.</span> Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio"><span class="text-teal">03.</span> Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact"><span class="text-teal">04.</span> Contact</a></li>
+          <li class="nav-item ms-2">
+            <a class="nav-link nav-cta" href="https://tanaoneline.com" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt me-1" style="font-size:.8rem"></i>Tana Online
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
 
-<!-- Hero -->
-<section id="hero" class="hero d-flex flex-column justify-content-center">
-    <div class="hero-content">
-        <h1>Salmi Mohamed <span class="highlight">Formateur/ Développeur  Data Analyste </span></h1>
+  <!-- ═══════════════════════════════════ SOCIALS SIDEBAR ═══════════════════════════════════ -->
+  <div class="hero-socials">
+    <a href="https://github.com/Amnzo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/salmi-mohamed" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="mailto:salmi.ensa.ilsi@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://tanaoneline.com" target="_blank" rel="noopener" aria-label="Tana Online"><i class="fas fa-globe"></i></a>
+  </div>
 
-        <p class="lead">Expertise en Python, Django, Django REST Framework, Data Analysis & plus</p>
-        <a href="#contact" class="btn btn-primary-hero">Contactez-moi</a>
-		<a target="_blank" href="{% static 'salmi_2025.pdf' %}" class="btn btn-primary-hero"  download>
-			<i class="fas fa-download me-2"></i> Télécharger CV
-		  </a>
-		
-    </div>
-</section>
+  <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+  <section id="hero">
+    <div class="container">
+      <div class="row align-items-center gy-5">
 
-<!-- About -->
-<section id="about" class="container">
-    <div class="row">
-        <div class="col-md-6">
-			<img src="{% static 'images/me2.jpg' %}" alt="Photo de Mohamed Salmi" loading="lazy" />
+        <!-- Text -->
+        <div class="col-lg-7" data-aos="fade-right" data-aos-duration="800">
+          <p class="hero-greeting">Bonjour, je suis</p>
+          <h1 class="hero-name">Mohamed Salmi</h1>
+          <h2 class="hero-title">
+            <span id="typed-output"></span>
+          </h2>
+          <p class="hero-desc">
+            Développeur Full Stack & Data Analyste avec plus de <strong style="color:var(--white)">10 ans d'expérience</strong>.
+            Je transforme vos idées en solutions digitales robustes, scalables et performantes.
+          </p>
+          <div class="hero-btns">
+            <a href="#portfolio" class="btn-teal-fill">Voir mes projets</a>
+            <a href="{% static 'salmi_2025.pdf' %}" class="btn-teal" download>
+              <i class="fas fa-download me-2"></i>Télécharger CV
+            </a>
+          </div>
         </div>
-        <div class="col-md-6">
-            <h2>À propos de moi</h2>
-            <p class="lead">
-                Développeur full stack passionné avec plus de 10 ans d'expérience. Spécialisé en Python, Django, et analyse de données, je crée des solutions innovantes, performantes et scalables pour accompagner la transformation digitale des entreprises.
-            </p>
-			<div class="skills" aria-label="Compétences techniques">
-				<span class="skill-badge" title="Python"><i class="fab fa-python"></i> Python</span>
-				<span class="skill-badge" title="Django"><i class="fas fa-leaf"></i> Django</span>
-				<span class="skill-badge" title="Développement Mobile"><i class="fas fa-mobile-alt"></i> Flutter</span>
 
-
-				<span class="skill-badge" title="JavaScript"><i class="fab fa-js-square"></i> JavaScript</span>
-				<span class="skill-badge" title="Bootstrap"><i class="fab fa-bootstrap"></i> Bootstrap</span>
-				<span class="skill-badge" title="MySQL"><i class="fas fa-database"></i> MySQL</span>
-				<span class="skill-badge" title="Git"><i class="fab fa-git-alt"></i> Git</span>
-				<span class="skill-badge" title="REST API"><i class="fas fa-network-wired"></i> REST API</span>
-				<span class="skill-badge" title="Data Analysis"><i class="fas fa-chart-line"></i> Data Analysis</span>
-				<span class="skill-badge" title="Pandas"><i class="fas fa-table"></i> Pandas</span>
-				<span class="skill-badge" title="NumPy"><i class="fas fa-calculator"></i> NumPy</span>
-				<span class="skill-badge" title="Linux"><i class="fab fa-linux"></i> Linux</span>
-				<span class="skill-badge" title="Docker"><i class="fab fa-google"></i> GCP</span>
-			</div>
-			
+        <!-- Avatar -->
+        <div class="col-lg-5 text-center" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+          <img src="{% static 'images/me2.jpg' %}" alt="Mohamed Salmi" class="hero-avatar" loading="lazy" />
         </div>
-    </div>
-</section>
 
-<!-- Portfolio -->
-<section id="portfolio" class="container">
-    <h2>Mes projets récents</h2>
-    <div class="portfolio-grid">
-		{% for post in posts %}
-        <!-- Exemple de carte projet -->
-        <article class="portfolio-card" tabindex="0" aria-label="Projet gestion des commandes">
-            <img src="{{post.thumbnail.url}}" alt="Capture écran projet gestion des commandes" />
-            <div class="portfolio-card-body">
-                <h3 class="portfolio-card-title">{{post.headline}}</h3>
-                <p class="portfolio-card-text">
-					{{post.sub_headline}}
-                </p>
-                <a href="https://github.com/Amnzo" target="_blank" rel="noopener" class="btn btn-portfolio" aria-label="Voir le projet sur GitHub">Voir sur GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ TANA ONLINE BANNER ═══════════════════════════════════ -->
+  <section id="tana">
+    <div class="container">
+      <div class="tana-inner">
+        <div class="tana-left" data-aos="fade-right" data-aos-duration="700">
+          <span class="tana-eyebrow"><i class="fas fa-store me-2"></i>Mon autre projet</span>
+          <h2>Votre site en ligne<br>sous <span style="text-decoration:underline;text-decoration-style:wavy">24h</span></h2>
+          <p>
+            <strong>tanaoneline.com</strong> — Je crée des sites web professionnels clé en main pour
+            restaurants, boutiques, salons et garages. <strong>Domaine + hébergement + tableau de bord</strong> inclus.
+            À partir de <strong>99 DH/mois</strong>, visible sur Google dès aujourd'hui.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.25rem;">
+            <span style="background:rgba(10,25,47,.12);color:var(--navy);font-size:.82rem;font-weight:700;padding:.35rem .9rem;border-radius:20px;">⚡ 24h mise en ligne</span>
+            <span style="background:rgba(10,25,47,.12);color:var(--navy);font-size:.82rem;font-weight:700;padding:.35rem .9rem;border-radius:20px;">📱 100% mobile</span>
+            <span style="background:rgba(10,25,47,.12);color:var(--navy);font-size:.82rem;font-weight:700;padding:.35rem .9rem;border-radius:20px;">🇲🇦 Marché marocain</span>
+          </div>
+        </div>
+        <div class="tana-right" data-aos="fade-left" data-aos-duration="700" data-aos-delay="150">
+          <a href="https://tanaoneline.com" target="_blank" rel="noopener" class="btn-tana-primary">
+            <i class="fas fa-arrow-right"></i> Voir tanaoneline.com
+          </a>
+          <a href="https://tanaoneline.com" target="_blank" rel="noopener" class="btn-tana-secondary">
+            <i class="fab fa-whatsapp"></i> Démarrer sur WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ STATS ═══════════════════════════════════ -->
+  <div id="stats">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat-item">
+            <div class="stat-number">10<span style="color:var(--white)">+</span></div>
+            <div class="stat-label">Années d'expérience</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-item">
+            <div class="stat-number">50<span style="color:var(--white)">+</span></div>
+            <div class="stat-label">Projets livrés</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-item">
+            <div class="stat-number">30<span style="color:var(--white)">+</span></div>
+            <div class="stat-label">Clients satisfaits</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat-item">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Sites actifs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════ ABOUT ═══════════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="row gy-5 align-items-center">
+
+        <!-- Image -->
+        <div class="col-lg-4 col-md-5 order-md-2 order-lg-1" data-aos="fade-right" data-aos-duration="700">
+          <div class="about-img-wrap">
+            <img src="{% static 'images/me1.jpg' %}" alt="Mohamed Salmi" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="col-lg-8 col-md-7 order-md-1 order-lg-2" data-aos="fade-left" data-aos-duration="700">
+          <span class="section-number">01. À propos de moi</span>
+          <h2 class="section-title">Qui suis-je ?</h2>
+          <div class="divider"></div>
+          <p>
+            Je suis <strong style="color:var(--white)">Mohamed Salmi</strong>, développeur Full Stack et Data Analyste basé au Maroc.
+            Passionné par la technologie depuis plus d'une décennie, j'accompagne entreprises et startups dans leur
+            transformation numérique en concevant des applications web modernes, des APIs robustes et des pipelines de données efficaces.
+          </p>
+          <p>
+            J'interviens également comme <strong style="color:var(--white)">formateur</strong> en développement web et data science,
+            et je suis à l'origine de <a href="https://tanaoneline.com" target="_blank" rel="noopener" class="text-teal">tanaoneline.com</a>,
+            un service de création de sites web professionnels pour commerces locaux au Maroc.
+          </p>
+          <ul>
+            <li>Python / Django / DRF</li>
+            <li>Flutter (Mobile)</li>
+            <li>Data Analysis &amp; BI</li>
+            <li>REST API Design</li>
+            <li>MySQL / PostgreSQL</li>
+            <li>Git &amp; DevOps</li>
+            <li>JavaScript / Bootstrap</li>
+            <li>Linux / GCP</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ SERVICES ═══════════════════════════════════ -->
+  <section id="services">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-number" style="display:inline-block">02. Ce que je fais</span>
+        <h2 class="section-title">Mes services</h2>
+        <div class="divider mx-auto"></div>
+      </div>
+      <div class="row gy-4">
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-code"></i></div>
+            <h4>Développement Web Full Stack</h4>
+            <p>Conception et développement d'applications web complètes avec Django, Python et des frontends modernes. De la maquette au déploiement.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-plug"></i></div>
+            <h4>API REST & Intégrations</h4>
+            <p>Création d'APIs RESTful sécurisées avec Django REST Framework pour alimenter vos applications mobiles, SPA ou services tiers.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
+            <h4>Data Analyse & Dashboards</h4>
+            <p>Exploration et visualisation de vos données avec Python (Pandas, NumPy, Matplotlib). Tableaux de bord interactifs pour vos décisions.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+            <h4>Applications Mobiles</h4>
+            <p>Développement d'apps cross-platform avec Flutter. Interface fluide, performances natives sur iOS et Android à partir d'une seule base de code.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <h4>Formation & Coaching</h4>
+            <p>Formations sur mesure en développement web, Python et data science. Accompagnement individuel ou en équipe, à distance ou en présentiel.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-rocket"></i></div>
+            <h4>Déploiement & Maintenance</h4>
+            <p>Mise en production sur serveur Linux / GCP / PythonAnywhere, configuration CI/CD, monitoring et maintenance évolutive de vos projets.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ SKILLS ═══════════════════════════════════ -->
+  <section id="skills">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-number" style="display:inline-block">Compétences</span>
+        <h2 class="section-title">Stack technique</h2>
+        <div class="divider mx-auto"></div>
+      </div>
+      <div class="row gy-4">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+          <div class="skill-group">
+            <h5><i class="fas fa-server me-2"></i>Backend</h5>
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">Django</span>
+            <span class="skill-pill">DRF</span>
+            <span class="skill-pill">Flask</span>
+            <span class="skill-pill">PHP / Laravel</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="skill-group">
+            <h5><i class="fas fa-palette me-2"></i>Frontend</h5>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">Bootstrap 5</span>
+            <span class="skill-pill">Flutter</span>
+            <span class="skill-pill">Angular</span>
+            <span class="skill-pill">HTML / CSS</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="skill-group">
+            <h5><i class="fas fa-database me-2"></i>Data & DB</h5>
+            <span class="skill-pill">Pandas</span>
+            <span class="skill-pill">NumPy</span>
+            <span class="skill-pill">MySQL</span>
+            <span class="skill-pill">PostgreSQL</span>
+            <span class="skill-pill">SQLite</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="skill-group">
+            <h5><i class="fas fa-tools me-2"></i>Outils</h5>
+            <span class="skill-pill">Git / GitHub</span>
+            <span class="skill-pill">Linux</span>
+            <span class="skill-pill">GCP</span>
+            <span class="skill-pill">Docker</span>
+            <span class="skill-pill">REST API</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ PORTFOLIO ═══════════════════════════════════ -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-number" style="display:inline-block">03. Mes réalisations</span>
+        <h2 class="section-title">Portfolio</h2>
+        <div class="divider mx-auto"></div>
+        <p style="max-width:500px;margin:0 auto;color:var(--slate)">
+          Une sélection de projets récents illustrant mes compétences en développement et en analyse de données.
+        </p>
+      </div>
+
+      {% if posts %}
+      <div class="row gy-4">
+        {% for post in posts %}
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:'0' }}0">
+          <article class="project-card">
+            <img src="{{ post.thumbnail.url }}" alt="{{ post.headline }}" loading="lazy" />
+            <div class="project-body">
+              <div class="project-tags">
+                {% for tag in post.tags.all %}
+                  <span class="project-tag">{{ tag.name }}</span>
+                {% endfor %}
+              </div>
+              <h4>{{ post.headline }}</h4>
+              <p>{{ post.sub_headline }}</p>
+              <div class="project-links">
+                <a href="{% url 'post' post.slug %}" title="Voir le détail"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/Amnzo" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+              </div>
             </div>
-        </article>
-		{% endfor %}
+          </article>
+        </div>
+        {% endfor %}
+      </div>
 
+      <div class="text-center mt-5" data-aos="fade-up">
+        <a href="{% url 'posts' %}" class="btn-teal">Voir tous les projets &rarr;</a>
+      </div>
+      {% else %}
+      <p class="text-center" style="color:var(--slate)">Projets en cours d'ajout…</p>
+      {% endif %}
 
-        <!-- Ajoute ici d'autres projets -->
     </div>
-</section>
+  </section>
 
-<!-- Contact -->
-<section id="contact">
-    <h2>Contactez-moi</h2>
-    <form action="#" method="POST" novalidate aria-label="Formulaire de contact">
-        <label for="name">Nom complet</label>
-        <input type="text" id="name" name="name" required placeholder="Votre nom complet" />
+  <!-- ═══════════════════════════════════ CONTACT ═══════════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-number" style="display:inline-block">04. Travaillons ensemble</span>
+        <h2 class="section-title">Contactez-moi</h2>
+        <div class="divider mx-auto"></div>
+        <p style="max-width:480px;margin:0 auto;color:var(--slate)">
+          Un projet en tête ? Une question ? Envoyez-moi un message et je vous répondrai sous 24h.
+        </p>
+      </div>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required placeholder="Votre email" />
+      <div class="row gy-5 align-items-start">
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required placeholder="Votre message"></textarea>
+        <!-- Contact Info -->
+        <div class="col-lg-4" data-aos="fade-right" data-aos-duration="700">
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h5>Email</h5>
+              <a href="mailto:salmi.ensa.ilsi@gmail.com">salmi.ensa.ilsi@gmail.com</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-globe"></i></div>
+            <div>
+              <h5>Sites web</h5>
+              <a href="https://tanaoneline.com" target="_blank" rel="noopener">tanaoneline.com</a><br />
+              <a href="https://salmitech.pythonanywhere.com" target="_blank" rel="noopener">salmitech.pythonanywhere.com</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fab fa-github"></i></div>
+            <div>
+              <h5>GitHub</h5>
+              <a href="https://github.com/Amnzo" target="_blank" rel="noopener">github.com/Amnzo</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h5>Localisation</h5>
+              <p>Maroc — Disponible à distance</p>
+            </div>
+          </div>
+        </div>
 
-        <button type="submit">Envoyer</button>
-    </form>
-</section>
+        <!-- Contact Form -->
+        <div class="col-lg-8" data-aos="fade-left" data-aos-duration="700">
+          <div class="contact-form">
+            <form action="{% url 'send_email' %}" method="POST" novalidate>
+              {% csrf_token %}
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="c-name">Nom complet</label>
+                  <input type="text" id="c-name" name="name" class="form-control"
+                    placeholder="Votre nom" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="c-email">Email</label>
+                  <input type="email" id="c-email" name="email" class="form-control"
+                    placeholder="votre@email.com" required />
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="c-subject">Sujet</label>
+                  <input type="text" id="c-subject" name="subject" class="form-control"
+                    placeholder="Objet de votre message" required />
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="c-message">Message</label>
+                  <textarea id="c-message" name="message" class="form-control"
+                    rows="6" placeholder="Décrivez votre projet ou votre demande…" required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-teal-fill w-100" style="padding:.85rem;font-size:1rem;border:none;cursor:pointer;border-radius:8px;">
+                    <i class="fas fa-paper-plane me-2"></i>Envoyer le message
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
 
-<!-- Footer -->
-<footer>
-    &copy; 2025 Mohamed Salmi. Tous droits réservés.
-</footer>
+      </div>
+    </div>
+  </section>
 
-<!-- Bootstrap JS Bundle + Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
+  <footer>
+    <div class="container text-center">
+      <div class="mb-3">
+        <a href="https://github.com/Amnzo" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/salmi-mohamed" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:salmi.ensa.ilsi@gmail.com" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://tanaoneline.com" target="_blank" rel="noopener" class="social-link" aria-label="Tana Online"><i class="fas fa-globe"></i></a>
+      </div>
+      <p class="footer-text">
+        Conçu &amp; développé par <strong style="color:var(--white)">Mohamed Salmi</strong>
+        &nbsp;|&nbsp;
+        Retrouvez-moi aussi sur <a href="https://tanaoneline.com" target="_blank" rel="noopener">tanaoneline.com</a>
+      </p>
+      <p class="footer-text mt-1">&copy; {% now "Y" %} Mohamed Salmi. Tous droits réservés.</p>
+    </div>
+  </footer>
 
+  <!-- ═══════════════════════════════════ SCRIPTS ═══════════════════════════════════ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/dist/typed.min.js"></script>
 
+  <script>
+    // Init AOS
+    AOS.init({ once: true, offset: 80 });
 
+    // Typed.js hero
+    new Typed('#typed-output', {
+      strings: [
+        'Développeur Full Stack',
+        'Data Analyste',
+        'Formateur Tech',
+        'Expert Django & Python',
+      ],
+      typeSpeed: 55,
+      backSpeed: 35,
+      backDelay: 2000,
+      loop: true,
+    });
+
+    // Navbar shrink on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('mainNav');
+      nav.style.background = window.scrollY > 60
+        ? 'rgba(10,25,47,0.98)'
+        : 'rgba(10,25,47,0.92)';
+    });
+  </script>
+
+</body>
+</html>
