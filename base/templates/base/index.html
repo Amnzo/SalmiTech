@@ -170,23 +170,88 @@
       transition: filter .3s;
     }
     .hero-avatar:hover { filter: grayscale(0); }
+    /* ── SOCIAL SIDEBAR ── */
     .hero-socials {
-      position: fixed; bottom: 0; left: 2.5rem;
-      display: flex; flex-direction: column; align-items: center;
-      gap: 1rem; z-index: 10;
-    }
-    .hero-socials::after {
-      content: '';
-      width: 1px; height: 80px;
-      background: var(--slate);
-      display: block;
+      position: fixed;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      z-index: 999;
+      display: flex; flex-direction: column;
+      gap: .45rem;
     }
     .hero-socials a {
-      color: var(--slate);
-      font-size: 1.1rem;
-      transition: color .25s, transform .25s;
+      display: flex; align-items: center;
+      height: 48px;
+      background: var(--navy-light);
+      border: 1px solid rgba(100,255,218,.15);
+      border-left: none;
+      border-radius: 0 10px 10px 0;
+      padding: 0 1rem 0 .85rem;
+      color: var(--slate-light);
+      font-size: .9rem; font-weight: 700;
+      text-decoration: none;
+      overflow: hidden;
+      width: 48px;
+      white-space: nowrap;
+      position: relative;
+      transition:
+        width .35s cubic-bezier(.4,0,.2,1),
+        background .25s,
+        color .25s,
+        border-color .25s,
+        box-shadow .25s;
+      /* entrance */
+      opacity: 0;
+      translate: -60px 0;
     }
-    .hero-socials a:hover { color: var(--teal); transform: translateY(-3px); }
+    .hero-socials a.sidebar-visible {
+      opacity: 1;
+      translate: 0 0;
+      transition:
+        opacity .5s ease,
+        translate .5s cubic-bezier(.34,1.56,.64,1),
+        width .35s cubic-bezier(.4,0,.2,1),
+        background .25s,
+        color .25s,
+        border-color .25s,
+        box-shadow .25s;
+    }
+    .hero-socials a:hover {
+      width: 175px;
+      background: var(--teal);
+      border-color: var(--teal);
+      color: var(--navy);
+      box-shadow: 4px 4px 24px rgba(100,255,218,.3);
+    }
+    .hero-socials .s-icon {
+      font-size: 1.05rem;
+      min-width: 22px;
+      display: flex; align-items: center; justify-content: center;
+      margin-right: .7rem;
+      flex-shrink: 0;
+    }
+    .hero-socials .s-label {
+      font-size: .8rem; font-weight: 700; letter-spacing: .4px;
+      opacity: 0; translate: -6px 0;
+      transition: opacity .2s .08s, translate .2s .08s;
+      pointer-events: none;
+    }
+    .hero-socials a:hover .s-label { opacity: 1; translate: 0 0; }
+    /* pulse ring on first item */
+    .hero-socials a:first-child::after {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: 0 10px 10px 0;
+      border: 1.5px solid rgba(100,255,218,.5);
+      animation: sbPulse 2.8s ease-out infinite;
+      pointer-events: none;
+    }
+    @keyframes sbPulse {
+      0%   { opacity: .8; transform: scale(1); }
+      60%  { opacity: 0;  transform: scale(1.35); }
+      100% { opacity: 0;  transform: scale(1.35); }
+    }
+    @media (max-width: 767px) { .hero-socials { display: none; } }
 
     /* ── ABOUT ── */
     #about { background: var(--navy-light); }
@@ -479,7 +544,6 @@
 
     @media (max-width: 767px) {
       section { padding: 70px 0; }
-      .hero-socials { display: none; }
       .contact-form { padding: 2rem 1.25rem; }
       #about ul { grid-template-columns: 1fr; }
       .hero-name { font-size: 2.4rem; }
@@ -514,11 +578,23 @@
   </nav>
 
   <!-- ═══════════════════════════════════ SOCIALS SIDEBAR ═══════════════════════════════════ -->
-  <div class="hero-socials">
-    <a href="https://github.com/Amnzo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/mohamed-salmi-227ba1bb" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-    <a href="mailto:salmi.ensa.ilsi@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-    <a href="https://tanaoneline.com" target="_blank" rel="noopener" aria-label="Tana Online"><i class="fas fa-globe"></i></a>
+  <div class="hero-socials" id="socialSidebar">
+    <a href="https://github.com/Amnzo" target="_blank" rel="noopener" aria-label="GitHub">
+      <span class="s-icon"><i class="fab fa-github"></i></span>
+      <span class="s-label">GitHub</span>
+    </a>
+    <a href="https://www.linkedin.com/in/mohamed-salmi-227ba1bb" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <span class="s-icon"><i class="fab fa-linkedin-in"></i></span>
+      <span class="s-label">LinkedIn</span>
+    </a>
+    <a href="mailto:salmi.ensa.ilsi@gmail.com" aria-label="Email">
+      <span class="s-icon"><i class="fas fa-envelope"></i></span>
+      <span class="s-label">Me contacter</span>
+    </a>
+    <a href="https://tanaoneline.com" target="_blank" rel="noopener" aria-label="Tana Online">
+      <span class="s-icon"><i class="fas fa-globe"></i></span>
+      <span class="s-label">tanaoneline.com</span>
+    </a>
   </div>
 
   <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
@@ -1071,6 +1147,14 @@
   <script>
     // Init AOS
     AOS.init({ once: true, offset: 80 });
+
+    // Social sidebar entrance — cascade with spring effect
+    const sidebarLinks = document.querySelectorAll('#socialSidebar a');
+    sidebarLinks.forEach((link, i) => {
+      setTimeout(() => {
+        link.classList.add('sidebar-visible');
+      }, 800 + i * 150);
+    });
 
     // Typed.js hero
     new Typed('#typed-output', {
