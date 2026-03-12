@@ -1,4 +1,4 @@
-#!/home/mohamedsalmi/Bureau/Django/SalmiTech/venv/bin/python3
+#!/home/salmipc/Bureau/back/Django/SalmiTech/venv/bin/python3.12
 
 import sys
 import json
