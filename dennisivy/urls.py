@@ -18,11 +18,21 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_views
+from django.contrib.sitemaps.views import sitemap
+from base.sitemaps import PostSitemap, StaticViewSitemap
+from base import views as base_views
+
+sitemaps = {
+    'static': StaticViewSitemap,
+    'posts': PostSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('base.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('robots.txt', base_views.robots_txt, name='robots_txt'),
 
     #1
     path('password_reset/', auth_views.PasswordResetView.as_view(template_name="password_reset.html"), name="password_reset"),

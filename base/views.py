@@ -18,6 +18,23 @@ from .models import *
 
 # Create your views here.
 
+def robots_txt(request):
+	content = """User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /account/
+Disallow: /update_profile/
+Disallow: /create_post/
+Disallow: /update_post/
+Disallow: /delete_post/
+Disallow: /send_email/
+Disallow: /password_reset/
+Sitemap: https://salmitech.pythonanywhere.com/sitemap.xml
+"""
+	return HttpResponse(content, content_type='text/plain')
+
 def home(request):
 	posts = Post.objects.filter(active=True).order_by('-id')
 
